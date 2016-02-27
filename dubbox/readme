@@ -1,0 +1,5 @@
+when restart a dubbox node ,zk can not connect cluster, maybe after dns restart must restart zk
+zk log: host can not be found ?
+
+
+
