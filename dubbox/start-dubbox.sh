@@ -37,8 +37,8 @@ do
 	((i++))
 done 
 
-echo "update zk cluster config"
-sleep 5
+echo "update zk cluster config wait 10 second"
+sleep 10
 cp -f zk/zoo.cfg zk/zoo_m.cfg
 
 i=1
@@ -54,6 +54,7 @@ do
        echo $i > zk/myid
        sudo docker cp zk/myid dubbox_$i:/root/zookeeper/myid
        sudo docker cp zk/zoo_m.cfg dubbox_$i:/opt/zookeeper/conf/zoo.cfg
+       sleep 1
        docker exec -u root -d dubbox_$i sh -c "/opt/zookeeper/bin/zkServer.sh restart"
        ((i++))
 done
